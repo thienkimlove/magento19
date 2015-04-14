@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Hardik Gajjar
+ */
+-->
+<config>
+    <modules>
+        <Hardik_Ajaxnav>
+            <version>1.0.1</version>
+        </Hardik_Ajaxnav>
+    </modules>
+    <global>
+        <models>
+            <ajaxnav>
+                <class>Hardik_Ajaxnav_Model</class>
+            </ajaxnav>
+        </models>
+        <blocks>
+            <ajaxnav>
+                <class>Hardik_Ajaxnav_Block</class>
+            </ajaxnav>
+        </blocks>
+        <helpers>
+            <ajaxnav>
+                <class>Hardik_Ajaxnav_Helper</class>
+            </ajaxnav>
+        </helpers>
+        <rewrite>
+            <Hardik_ajaxnav_catalog_category>
+                <from><![CDATA[#^catalog/category/view/#]]></from>
+                <to>ajaxnav/catalog_category/view/</to>
+            </Hardik_ajaxnav_catalog_category>
+            <Hardik_ajaxnav_catalogsearch_result>
+                <from><![CDATA[#^/catalogsearch/result/index/#]]></from>
+                <to>/ajaxnav/catalogsearch_result/index/</to>
+            </Hardik_ajaxnav_catalogsearch_result>
+            <Hardik_ajaxnav_catalog_product_compare_fix>
+                <from><![CDATA[#^/catalog/product_compare/add/#]]></from>
+                <to>/ajaxnav/catalog_product_compare/add/</to>
+            </Hardik_ajaxnav_catalog_product_compare_fix>
+        </rewrite>
+    </global>
+    <frontend>
+        <routers>
+            <ajaxnav>
+                <use>standard</use>
+                <args>
+                    <module>Hardik_Ajaxnav</module>
+                    <frontName>ajaxnav</frontName>
+                </args>
+            </ajaxnav>
+        </routers>
+        <layout>
+            <updates>
+                <ajaxnav>
+                    <file>ajaxnav.xml</file>
+                </ajaxnav>
+            </updates>
+        </layout>
+    </frontend>
+    <adminhtml>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <ajaxnav>
+                                            <title>Ajaxnav Settings</title>
+                                        </ajaxnav>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>
